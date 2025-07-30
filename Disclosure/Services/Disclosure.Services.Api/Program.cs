@@ -3,6 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
 
+builder.AddNpgsqlDataSource(connectionName: "postgres");
+
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
