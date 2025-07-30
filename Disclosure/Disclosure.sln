@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Disclosure.Tests", "Tests\D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Disclosure.Web", "Clients\Disclosure.Web\Disclosure.Web.csproj", "{7DA08339-A87E-F67B-A76A-952D86F76FD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Disclosure.Shared.Data", "Shared\Disclosure.Shared.Data\Disclosure.Shared.Data.csproj", "{C405A888-392D-4340-8CA3-28655BEF9EB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{7DA08339-A87E-F67B-A76A-952D86F76FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DA08339-A87E-F67B-A76A-952D86F76FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DA08339-A87E-F67B-A76A-952D86F76FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C405A888-392D-4340-8CA3-28655BEF9EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C405A888-392D-4340-8CA3-28655BEF9EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C405A888-392D-4340-8CA3-28655BEF9EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C405A888-392D-4340-8CA3-28655BEF9EB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{77A9077A-82A5-9476-1644-A0CD465E543E} = {9188FA22-7F6A-43EB-A7D8-DC6A115B6A05}
 		{2FA9721C-A3D5-0875-1DDE-6AD0D6FCC29B} = {4E57B003-5721-40D4-B0E5-1C285346730A}
 		{7DA08339-A87E-F67B-A76A-952D86F76FD3} = {7269B1AF-005C-49C9-83A2-CA9FAE580193}
+		{C405A888-392D-4340-8CA3-28655BEF9EB8} = {8917F34E-5D61-488B-8405-CF114201052A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04D5BE8A-130B-4B09-8949-B5A88228C02B}

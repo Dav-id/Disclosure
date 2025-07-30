@@ -11,9 +11,9 @@ public class WebTests
     public async Task GetWebResourceRootReturnsOkStatusCode()
     {
         // Arrange
-        var cancellationToken = new CancellationTokenSource(DefaultTimeout).Token;
+        CancellationToken cancellationToken = new CancellationTokenSource(DefaultTimeout).Token;
 
-        var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Projects.Disclosure_AppHost>(cancellationToken);
+        IDistributedApplicationTestingBuilder appHost = await DistributedApplicationTestingBuilder.CreateAsync<Projects.Disclosure_AppHost>(cancellationToken);
         appHost.Services.AddLogging(logging =>
         {
             logging.SetMinimumLevel(LogLevel.Debug);
@@ -21,18 +21,19 @@ public class WebTests
             logging.AddFilter(appHost.Environment.ApplicationName, LogLevel.Debug);
             logging.AddFilter("Aspire.", LogLevel.Debug);
         });
+
         appHost.Services.ConfigureHttpClientDefaults(clientBuilder =>
         {
             clientBuilder.AddStandardResilienceHandler();
         });
 
-        await using var app = await appHost.BuildAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
+        await using Aspire.Hosting.DistributedApplication app = await appHost.BuildAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
         await app.StartAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
 
         // Act
-        var httpClient = app.CreateHttpClient("clients-web");
+        HttpClient httpClient = app.CreateHttpClient("clients-web");
         await app.ResourceNotifications.WaitForResourceHealthyAsync("clients-web", cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
-        var response = await httpClient.GetAsync("/", cancellationToken);
+        HttpResponseMessage response = await httpClient.GetAsync("/", cancellationToken);
 
         // Assert
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
